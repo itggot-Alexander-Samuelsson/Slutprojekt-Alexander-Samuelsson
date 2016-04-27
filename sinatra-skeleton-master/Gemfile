@@ -8,11 +8,11 @@ ruby '2.2.3'
 gem 'sinatra'
 gem 'sinatra-partial'
 gem 'data_mapper'
-gem 'dm-timestamps',
+gem 'dm-timestamps'
 gem 'slim'
 gem 'tilt', '~> 1.4.1' #temporary fix
 gem 'racksh'
-
+gem 'bcrypt'
 # Used during local development (on your own machine)
 group :development do
 

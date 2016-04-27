@@ -1,19 +1,16 @@
-class File
+class Attachment
   include DataMapper::Resource
-
   property :id,     Serial
-  property :source, String
+  property :path,   FilePath
+  property :name,   String
   property :type,   Discriminator
 
 end
 
-class ArticleFile < File
-
+class ArticleAttachment < Attachment
   belongs_to :article
-
 end
 
-class CaseFile < File
-
+class CaseAttachment < Attachment
   belongs_to :update
 end

@@ -1,5 +1,5 @@
 require 'dm-timestamps'
-
+require 'bcrypt'
 class User
 
   include DataMapper::Resource
@@ -9,8 +9,10 @@ class User
   property :lname,    String
   property :admin,    Boolean, :default => false
   property :email,    String, :required => true
-  property :password, BCrypt, :required => true
+  property :password, BCryptHash, :required => true
 
   #skapa relationer för ärenden och artiklar senare
+
+
 
 end

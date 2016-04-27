@@ -1,0 +1,32 @@
+<div id="user_menu">
+  <table><tr>
+    <td><h3>Mina ärenden</h3></td>
+    <td><h3>Vanliga Problem</h3></td>
+  </tr></table>
+</div>
+<div id="user_issues_list">
+  <table class="mdl-data-table mdl-js-data-table">
+    <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Titel</th>
+      <th>Status</th>
+      <th>Senast uppdaterad</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for issue in @issues %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric"><a href="/user/issue/<%= issue.id %>"><%= issue.title %></a></td>
+            <td>Aktiv</td>
+            <td><%= issue.created_at %>></td>
+         </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <a href="#" onclick="window.open('newpage.htm', 'newwindow', 'width=300, height=250'); return false;">Click here to open new window</a>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <i class="material-icons">add</i>
+  </button>
+
+
+</div>

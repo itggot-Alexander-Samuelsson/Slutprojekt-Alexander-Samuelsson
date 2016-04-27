@@ -1,0 +1,60 @@
+html, body{
+    padding: 0px;
+    margin: 0px;
+}
+
+div#header{
+    background-color: #3F51B5;
+    height: 70px;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:10;
+}
+div#header p{
+    margin-right: 10px;
+    float: right;
+}
+div#header img{
+    margin-left: 10px;
+}
+
+/*User Issues*/
+
+div#user_menu{
+    background-color: transparent;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 15px;
+    z-index: 20;
+}
+div#user_menu table{
+    margin-right: auto;
+    margin-left: auto;
+}
+div#user_menu table td {
+    border-left:solid 40px transparent;
+    border-right:solid 40px transparent;
+}
+div#user_menu table h3 {
+    margin: 0px;
+}
+div#user_issues_list{
+    margin-top: 80px;
+}
+div#user_issues_list table {
+    width: 75%;
+}
+div#user_issues_list th {
+    font-size: 20px;
+    background-color: #C5CAE9;
+}
+div#user_issues_list td {
+    font-size: 16px;
+}
+div#user_issues_list button {
+    position: fixed;
+    top: 70%;
+    left: 80%;
+}

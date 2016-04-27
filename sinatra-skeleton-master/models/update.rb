@@ -6,6 +6,6 @@ class Update
   property :text, Text
 
   belongs_to :issue
-  has n, :files
+  has n, :attachments
 
 end

@@ -6,5 +6,5 @@ class Category
   property :name, String
 
   has n, :issues
-
+  has n, :articles, :through => Resource
 end
