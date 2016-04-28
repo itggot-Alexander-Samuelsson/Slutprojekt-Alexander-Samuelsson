@@ -11,8 +11,13 @@ class User
   property :email,    String, :required => true
   property :password, BCryptHash, :required => true
 
-  #skapa relationer för ärenden och artiklar senare
 
-
+  # class UserAdmin < User
+  #   belongs_to :issue
+  # end
+  #
+  # class UserRegular < User
+  #   belongs_to :issue
+  # end
 
 end

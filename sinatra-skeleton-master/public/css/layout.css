@@ -1,6 +1,14 @@
 html, body{
     padding: 0px;
     margin: 0px;
+    background-color: #E8EAF6;
+
+}
+div{
+
+}
+a{
+    text-decoration: none;
 }
 
 div#header{
@@ -40,11 +48,21 @@ div#user_menu table td {
 div#user_menu table h3 {
     margin: 0px;
 }
+div#user_menu a {
+    color: black;
+}
 div#user_issues_list{
     margin-top: 80px;
 }
 div#user_issues_list table {
     width: 75%;
+}
+div#user_issues_list td a {
+    display: block;
+    height: 40px;
+    font-size: 20px;
+    text-decoration: solid;
+    color: black;
 }
 div#user_issues_list th {
     font-size: 20px;
@@ -52,9 +70,28 @@ div#user_issues_list th {
 }
 div#user_issues_list td {
     font-size: 16px;
+    padding: 0px;
 }
 div#user_issues_list button {
     position: fixed;
     top: 70%;
     left: 80%;
+}
+
+div.mdl-card{
+    width: 70%;
+    max-width: 800px;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+div.mdl-card__media{
+    background-color: #E8EAF6;
+}
+
+div.update_container{
+    border-top: 10px solid #E8EAF6;
+    border-bottom: solid 10px #E8EAF6;
 }

@@ -1,10 +1,34 @@
-<br><br><br><br><br><br><br><br><br><br><br>
+<div id="user_menu">
+  <table><tr>
+    <td style="text-decoration: underline"><a href="/user/issues"><h3>Mina ärenden</h3></a></td>
+    <td><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></td>
+  </tr></table>
+</div>
 
 
 
+<div class="mdl-card">
+  <div class="mdl-card__title">
+    <h2><%= @issue.title %></h2>
+  </div>
+  <% for update in @updates do %>
+      <div class="update_container">
+        <div class="mdl-card__title-text"><span>Uppdaterad: <%= update.created_at.strftime('%Y-%m-%d') %></span></div>
+        <div class="mdl-card__supporting-text">
+          <span><%= update.text %></span>
+        </div>
+        <div class="mdl-card__media">
+          <img src="/img/smile.png" alt="Bild">
+        </div>
+      </div>
+  <% end %>
+  <div class="mdl-card__actions">
+    <a href="/user/issue/<%= @issue.id %>/update"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+      Uppdatera
+    </button></a>
+    <a href="/user/issue/<%= @issue.id %>/resolve"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+      Markera som löst
+    </button></a>
+  </div>
+</div>
 
-<p><%= @issue.title %></p>
-
-<% for update in @updates do %>
-  <p><%= update.text %></p>
-<% end %>

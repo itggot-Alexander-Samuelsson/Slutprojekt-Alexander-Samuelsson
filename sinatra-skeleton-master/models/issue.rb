@@ -12,4 +12,5 @@ class Issue
 
   has n, :updates
   belongs_to :category
+  has n, :users
 end

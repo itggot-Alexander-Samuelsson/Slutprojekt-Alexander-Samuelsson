@@ -21,7 +21,11 @@ class Seeder
     Issue.create(title:'Kan inte logga in', email:'hopp@gmail.com', category_id:2)
   end
   def self.update
-    Update.create(text:'Bla bla bla jag har blåskärm', issue_id:1)
+    Update.create(text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad asperiores aut dolor dolorem dolores ducimus eum explicabo fugit harum ipsum iste modi mollitia porro praesentium rem saepe temporibus, voluptas.', issue_id:1)
+    Update.create(text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad asperiores aut dolor dolorem dolores ducimus eum explicabo fugit harum ipsum iste modi mollitia porro praesentium rem saepe temporibus, voluptas.', issue_id:1)
+    Update.create(text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad asperiores aut dolor dolorem dolores ducimus eum explicabo fugit harum ipsum iste modi mollitia porro praesentium rem saepe temporibus, voluptas.', issue_id:1)
+
+
     Update.create(text:'Bla bla bla jag kan inte logga in', issue_id:2)
   end
   def self.user
