@@ -125,6 +125,11 @@ div#back_button{
     float: right;
 }
 
+form#update_issue{
+    width: 700px;
+    margin-top: 100px;
+}
+
 /*Loginsida*/
 
 form {
@@ -173,14 +178,16 @@ label.custom_label {
 
 /* active */
 
-input.custom_input:focus ~ ,label.custom_label, input.custom_input.used ~ ,label.custom_label {
-    top: -20px;
-    transform: scale(.75); left: -2px;
-    /* font-size: 14px; */
-    color: #4a89dc;
+/*input.custom_input:focus ~ ,label.custom_label, input.custom_input.used ~ ,label.custom_label {*/
+    /*top: -20px;*/
+    /*transform: scale(.75); left: -2px;*/
+    /*!* font-size: 14px; *!*/
+    /*color: #4a89dc;*/
+/*}*/
+
+.custom_input:focus + label{
+    color: hotpink;
 }
-
-
 /* Underline */
 
 .bar {
@@ -327,4 +334,8 @@ form#create_issue_form{
 
 .mdl-textfield{
     width: 100%;
+}
+
+form#create_issue_form ul{
+    z-index: 2
 }

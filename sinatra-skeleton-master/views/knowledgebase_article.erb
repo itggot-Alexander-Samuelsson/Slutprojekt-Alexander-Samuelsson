@@ -17,11 +17,11 @@
     <h2><%= @article.title %></h2>
   </div>
     <div class="mdl-card__title-text">
-      <% @article_categories = Category.all(:article_categories_id => @article.id) %>
+      <% for category in @article.categories %>
+        <%= category.name %>
+      <% end %>
       <span>
-        <% for category in @article_categories do %>
-            <%= category.name %>
-        <% end %>
+
       </span>
     </div>
     <div class="mdl-card__supporting-text">

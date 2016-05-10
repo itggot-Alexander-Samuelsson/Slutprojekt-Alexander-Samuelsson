@@ -1,0 +1,22 @@
+<div id="user_menu">
+  <table><tr>
+    <td style="text-decoration: underline"><a href="/user/issues"><h3>Mina ärenden</h3></a></td>
+    <td><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></td>
+  </tr></table>
+</div>
+
+<form action="/issue/<%= @issue.id %>/update" method="post" id="update_issue">
+  <h3>Uppdatera <%= @issue.title %></h3>
+  <div class="mdl-textfield mdl-js-textfield">
+    <textarea class="mdl-textfield__input" type="text" rows= "10" cols="100" name="update_text" ></textarea>
+    <label class="mdl-textfield__label" for="sample5">Ytterligare beskrivning av felet</label>
+  </div>
+
+  <a href="/files"><button type="button" class="custom_button buttonBlue" style="width: 200px;">Bifoga filer
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button></a>
+
+  <button type="submit" class="custom_button buttonBlue">Skicka
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button>
+</form>

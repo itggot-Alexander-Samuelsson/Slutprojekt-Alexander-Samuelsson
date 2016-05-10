@@ -30,7 +30,7 @@ class Seeder
 
   end
   def self.user
-    RegularUser.create(fname:'Boyert', lname:'Boyertsson', email:'boyert123@gmail.com', password:'boyert1337')
+    RegularUser.create(fname:'Boyert', lname:'Boyertsson', email:'boyert@m.m', password:'boyert1337')
   end
   def self.article
     article = Article.create(title:'Kan inte ansluta till nätverk', text:'Såhär gör du bla bla bla bla')
