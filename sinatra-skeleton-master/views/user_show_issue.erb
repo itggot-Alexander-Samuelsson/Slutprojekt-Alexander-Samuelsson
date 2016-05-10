@@ -5,20 +5,35 @@
   </tr></table>
 </div>
 
+<div id="back_button">
+  <a href="/user/issues"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+    <i class="material-icons">arrow_back</i>
+  </button></a>
+</div>
 
 
 <div class="mdl-card">
   <div class="mdl-card__title">
     <h2><%= @issue.title %></h2>
+    <button id="user_show_issue_menu">
+      <i></i>
+    </button>
+    <ul for="user_show_issue_menu"></ul>
   </div>
   <% for update in @updates do %>
+     <% @attachments = CaseAttachment.all(:update_id => update.id) %>
+
       <div class="update_container">
-        <div class="mdl-card__title-text"><span>Uppdaterad: <%= update.created_at.strftime('%Y-%m-%d') %></span></div>
+        <div class="mdl-card__title-text">
+          <span>Uppdaterad: <%= update.created_at.strftime('%Y-%m-%d') %></span>
+        </div>
         <div class="mdl-card__supporting-text">
           <span><%= update.text %></span>
         </div>
         <div class="mdl-card__media">
-          <img src="/img/smile.png" alt="Bild">
+          <% for attachment in @attachments do %>
+              <img src="<%= attachment.path %>" alt="Bild här">
+          <% end %>
         </div>
       </div>
   <% end %>
@@ -31,4 +46,3 @@
     </button></a>
   </div>
 </div>
-

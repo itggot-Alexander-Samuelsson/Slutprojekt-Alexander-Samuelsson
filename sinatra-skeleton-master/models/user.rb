@@ -10,14 +10,13 @@ class User
   property :admin,    Boolean, :default => false
   property :email,    String, :required => true
   property :password, BCryptHash, :required => true
-
-
-  # class UserAdmin < User
-  #   belongs_to :issue
-  # end
-  #
-  # class UserRegular < User
-  #   belongs_to :issue
-  # end
-
+  property :type, Discriminator
 end
+
+  class AdminUser < User
+    has n, :issue
+  end
+
+  class RegularUser < User
+    has n, :issue
+  end

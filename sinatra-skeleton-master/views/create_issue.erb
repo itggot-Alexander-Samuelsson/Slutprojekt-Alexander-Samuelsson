@@ -1,0 +1,49 @@
+<div id="user_menu">
+  <table><tr>
+    <td style="text-decoration: underline"><a href="/user/issues"><h3>Mina ärenden</h3></a></td>
+    <td><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></td>
+  </tr></table>
+</div>
+
+  <form action="/issue/create" method="post" id="create_issue_form">
+    <div class="group">
+      <input type="text" class="custom_input"><span class="highlight"></span><span class="bar"></span>
+      <label class="custom_label">Titel</label>
+    </div>
+    <div class="mui-dropdown">
+      <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">
+        Kategori
+        <span class="mui-caret"></span>
+      </button>
+      <ul class="mui-dropdown__menu" style="z-index: 2">
+        <li class="dropdown"><a href="#">Option 1</a></li>
+        <li class="dropdown"><a href="#">Option 2</a></li>
+        <li class="dropdown"><a href="#">Option 3</a></li>
+        <li class="dropdown"><a href="#">Option 4</a></li>
+      </ul>
+    </div>
+
+    <label for="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" style="margin-top: 50px">
+      <input type="checkbox" id="switch1" class="mdl-switch__input" checked>
+      <span class="mdl-switch__label"´checked>Avisering På/Av</span>
+    </label>
+
+    <div class="group">
+      <input type="text" class="custom_input"><span class="highlight"></span><span class="bar"></span>
+      <label class="custom_label">Alternativ E-mail för avisering</label>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield">
+      <textarea class="mdl-textfield__input" type="text" rows= "10" cols="100" id="sample5" ></textarea>
+      <label class="mdl-textfield__label" for="sample5">Beskrivning av felet</label>
+    </div>
+
+    <a href="/files"><button type="button" class="custom_button buttonBlue" style="width: 200px;">Bifoga filer
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button></a>
+
+    <button type="submit" class="custom_button buttonBlue">Skicka
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+
+  </form>

@@ -8,9 +8,11 @@ class Issue
   property :created_at, DateTime
   property :title,      String, :required => true
   property :email,      String
-  property :status,     Enum[ :unassigned, :assigned, :closed], :default => :unassigned
+  property :status,     Enum[ :Otilldelad, :Aktiv, :Stängd], :default => :Otilldelad
 
   has n, :updates
   belongs_to :category
-  has n, :users
+  belongs_to :regular_user
+  belongs_to :admin_user, required: false
+
 end

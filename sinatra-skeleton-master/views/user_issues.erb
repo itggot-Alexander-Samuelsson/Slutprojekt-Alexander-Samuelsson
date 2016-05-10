@@ -18,16 +18,15 @@
     <% for issue in @issues %>
           <tr>
             <td class="mdl-data-table__cell--non-numeric"><a href="/user/issue/<%= issue.id %>"><%= issue.title %></a></td>
-            <td><a href="/user/issue/<%= issue.id %>">Aktiv</a></td>
+            <td><a href="/user/issue/<%= issue.id %>"><%= issue.status %></a></td>
             <td><a href="/user/issue/<%= issue.id %>"><%= issue.created_at.strftime('%Y-%m-%d') %></a></td>
          </tr>
     <% end %>
     </tbody>
   </table>
-  <a href="#" onclick="window.open('newpage.htm', 'newwindow', 'width=300, height=250'); return false;">Click here to open new window</a>
-  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-    <i class="material-icons">add</i>
-  </button>
-
-
+  <div id="add_user_issue">
+    <a href="/issue/create"><button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">add</i>
+    </button></a>
+  </div>
 </div>

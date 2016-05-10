@@ -1,0 +1,34 @@
+<div id="user_menu">
+  <table><tr>
+    <td><a href="/user/issues"><h3>Mina ärenden</h3></a></td>
+    <td style="text-decoration: underline"><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></td>
+  </tr></table>
+</div>
+
+<div class="mdl-card">
+  <% for article in @articles do %>
+      <% @attachments = ArticleAttachment.all(:article_id => article.id) %>
+      <div class="article_container">
+        <div class="mdl-card__title">
+          <h2><%= article.title %></h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <span><%= article.text %></span>
+          <br>
+          <br>
+          <a href="/user/knowledgebase/article/<%= article.id %>">läs mer</a>
+        </div>
+        <div class="mdl-card__media">
+          <% for attachment in @attachments do %>
+              <img src="<%= attachment.path %>" alt="Bild här">
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+  <div class="mdl-card__actions">
+    <a href="/user/issue/<%= article.id %>/"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+      Uppdatera
+    </button></a>
+
+  </div>
+</div>
