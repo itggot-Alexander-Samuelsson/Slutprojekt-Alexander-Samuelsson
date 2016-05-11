@@ -3,8 +3,4 @@
  */
 $( document ).ready(function() {
 
-    $(".dropdown").click(function( event ) {
-        alert("Clicked");
-    })
-
 });

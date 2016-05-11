@@ -9,6 +9,7 @@ class Issue
   property :title,      String, :required => true
   property :email,      String
   property :status,     Enum[ :Otilldelad, :Aktiv, :Stängd], :default => :Otilldelad
+  property :notification, Boolean
 
   has n, :updates
   belongs_to :category

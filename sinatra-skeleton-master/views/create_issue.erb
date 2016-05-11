@@ -7,7 +7,7 @@
 
   <form action="/issue/create" method="post" id="create_issue_form">
     <div class="group">
-      <input type="text" class="custom_input"><span class="highlight"></span><span class="bar"></span>
+      <input type="text" class="custom_input" name="title"><span class="highlight"></span><span class="bar"></span>
       <label class="custom_label">Titel</label>
     </div>
     <% for category in @categories %>
@@ -18,7 +18,7 @@
     <% end %>
 
     <label for="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" style="margin-top: 50px">
-      <input type="checkbox" id="switch1" class="mdl-switch__input" checked>
+      <input type="checkbox" id="switch1" class="mdl-switch__input" value="set" name="notification" checked>
       <span class="mdl-switch__label"´checked>Avisering På/Av</span>
     </label>
 

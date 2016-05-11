@@ -64,6 +64,12 @@ class App < Sinatra::Base
     erb :create_issue
   end
 
+  post '/issue/create' do
+    if params['notification'] ==
+
+    Issue.create(title:"#{params['title']}", email:"#{params[]}")
+  end
+
 
 
 end
