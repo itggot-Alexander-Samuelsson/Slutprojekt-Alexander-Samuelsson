@@ -26,9 +26,13 @@
 </head>
 <body>
 <div id="header">
-
-  <img src="/img/itglogo.png" alt="ITG Logo">
-  <p>Inloggad som *user*</p>
+  <% if @user %>
+      <img src="/img/itglogo.png" alt="ITG Logo">
+      <span><h6>Inloggad som <%= @user.fname %> <%= @user.lname %></h6><form action="/logout" method="post"><button type="submit">Logga ut</button></form></span>
+  <% else %>
+      <img src="/img/itglogo.png" alt="ITG Logo">
+      <p>Ej inloggad</p>
+  <% end %>
 </div>
   <%= yield %>
 </body>

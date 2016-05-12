@@ -1,10 +1,13 @@
 class App < Sinatra::Base
   enable :sessions
 
-  get '/' do
+  before do
     if session[:user_id]
-      redirect '/user/issues'
+      @user = RegularUser.get(session[:user_id])
     end
+  end
+
+  get '/' do
   	erb :login
   end
 
@@ -12,16 +15,22 @@ class App < Sinatra::Base
     "Du loggas in..."
     p params
     user = RegularUser.first(email: params["email"])
+    p user
     if user && user.password == params["password"]
       session[:user_id] = user.id
+      redirect '/user/issues'
     end
 
-
     redirect '/'
+  end
 
+  post '/logout' do
+    session.destroy
+    redirect '/'
   end
 
   get '/user/issues' do
+
     @issues = Issue.all
     erb :user_issues
   end
@@ -65,11 +74,20 @@ class App < Sinatra::Base
   end
 
   post '/issue/create' do
-    if params['notification'] ==
+    if params['notification'] == "yes"
+      notification = "true"
+    else
+      notification = "false"
+    end
 
-    Issue.create(title:"#{params['title']}", email:"#{params[]}")
+
+    Issue.create(title:"#{params['title']}", email:"#{@user.email}", notification:"#{notification}", category_id:"#{params['category']}", regular_user_id:"#{@user.id}")
+    #notification radio kanske inte ger tillbaka yes, se felmeddelande (säger att notification = set)
+
+    redirect '/user/issues'
+
   end
-
-
-
 end
+
+
+

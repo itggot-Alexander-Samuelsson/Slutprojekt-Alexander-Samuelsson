@@ -5,7 +5,7 @@
   </tr></table>
 </div>
 
-<form action="/issue/<%= @issue.id %>/update" method="post" id="update_issue">
+<form action="/issue/<%= @issue.id %>/update" method="post" class="create" id="update_issue">
   <h3>Uppdatera <%= @issue.title %></h3>
   <div class="mdl-textfield mdl-js-textfield">
     <textarea class="mdl-textfield__input" type="text" rows= "10" cols="100" name="update_text" ></textarea>

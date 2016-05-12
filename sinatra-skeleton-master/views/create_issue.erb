@@ -5,19 +5,23 @@
   </tr></table>
 </div>
 
-  <form action="/issue/create" method="post" id="create_issue_form">
+  <form action="/issue/create" method="post" class="create" id="create_issue_form">
     <div class="group">
       <input type="text" class="custom_input" name="title"><span class="highlight"></span><span class="bar"></span>
       <label class="custom_label">Titel</label>
     </div>
     <% for category in @categories %>
     <label for="<%= category.name %>" class="mdl-radio mdl-js-radio">
-      <input type="radio" id="<%= category.name %>" name="flash" value="<%= category.id %>" class="mdl-radio__button">
+      <input type="radio" id="<%= category.name %>" name="category" value="<%= category.id %>" class="mdl-radio__button">
       <span class="mdl-radio__label"><%= category.name %></span>
     </label>
     <% end %>
 
-    <label for="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" style="margin-top: 50px">
+    <div id="create_issue_message">
+      <h5>Ditt problem kan redan vara löst, <a href="/user/knowledgebase">titta i vanliga problem</a></h5>
+    </div>
+
+    <label for="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" style="margin-top: 30px">
       <input type="checkbox" id="switch1" class="mdl-switch__input" value="set" name="notification" checked>
       <span class="mdl-switch__label"´checked>Avisering På/Av</span>
     </label>

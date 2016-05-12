@@ -22,7 +22,7 @@ div#header{
     width:100%;
     z-index:10;
 }
-div#header p{
+div#header span{
     margin-right: 10px;
     float: right;
 }
@@ -60,8 +60,7 @@ div#user_issues_list{
     margin-right: auto;
 }
 div#user_issues_list table {
-    width: 75%;
-    max-width: 900px;
+    width: 70vw;
     margin-right: auto;
     margin-left: auto;
 }
@@ -69,7 +68,7 @@ div#user_issues_list td a {
     display: block;
     height: 40px;
     font-size: 20px;
-    text-decoration: solid;
+    text-decoration: none;
     color: black;
 }
 div#user_issues_list th {
@@ -83,7 +82,7 @@ div#user_issues_list td {
 div#add_user_issue {
     position: fixed;
     top: 96px;
-    left: 80vw;
+    right: 7vw;
 
 }
 
@@ -132,7 +131,7 @@ form#update_issue{
 
 /*Loginsida*/
 
-form {
+.create {
     width: 380px;
     margin: 4em auto;
     padding: 3em 2em 2em 2em;
