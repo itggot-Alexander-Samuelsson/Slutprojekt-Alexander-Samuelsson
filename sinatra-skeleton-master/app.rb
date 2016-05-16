@@ -93,6 +93,7 @@ class App < Sinatra::Base
 
       filetype = file[:type].split('/')[1] #file[:type] always looks like image/*type*
 
+
       new_name = (0...30).map { ('a'..'z').to_a[rand(26)] }.join #Creates a random string with 30 letters
 
       File.open("public/uploads/#{new_name}.#{filetype}", "w") do |f|
