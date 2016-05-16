@@ -5,7 +5,7 @@
   </tr></table>
 </div>
 
-  <form action="/issue/create" method="post" class="create" id="create_issue_form">
+  <form action="/issue/create" method="post" class="create" id="create_issue_form" enctype="multipart/form-data">
     <div class="group">
       <input type="text" class="custom_input" name="title"><span class="highlight"></span><span class="bar"></span>
       <label class="custom_label">Titel</label>
@@ -32,13 +32,12 @@
     </div>
 
     <div class="mdl-textfield mdl-js-textfield">
-      <textarea class="mdl-textfield__input" type="text" rows= "10" cols="100" id="sample5" ></textarea>
+      <textarea class="mdl-textfield__input" type="text" rows= "10" cols="100" name="issue_text" ></textarea>
       <label class="mdl-textfield__label" for="sample5">Beskrivning av felet</label>
     </div>
 
-    <a href="/files"><button type="button" class="custom_button buttonBlue" style="width: 200px;">Bifoga filer
-      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-    </button></a>
+    <div class="group"><input type="file" name="attachments[]" multiple></div>
+
 
     <button type="submit" class="custom_button buttonBlue">Skicka
       <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>

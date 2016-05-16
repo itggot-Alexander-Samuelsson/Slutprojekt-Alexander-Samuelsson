@@ -8,9 +8,9 @@ class Attachment
 end
 
 class ArticleAttachment < Attachment
-  belongs_to :article
+  belongs_to :article, required: false
 end
 
 class CaseAttachment < Attachment
-  belongs_to :update
+  belongs_to :update, required: false
 end

@@ -30,6 +30,11 @@ div#header img{
     margin-left: 10px;
 }
 
+div#header p{
+    margin-right: 10px;
+    float: right;
+}
+
 /*User Issues*/
 
 div#user_menu{
@@ -108,6 +113,11 @@ div.mdl-card__title-text{
 
 div.mdl-card__title{
     border-bottom: 7px solid #9FA8DA;
+
+}
+
+div.mdl-card__title-text span{
+    margin-left: 13px;
 }
 
 div.update_container{
@@ -123,6 +133,8 @@ div#back_button{
 .mdl-card__supporting-text a{
     float: right;
 }
+
+
 
 form#update_issue{
     width: 700px;

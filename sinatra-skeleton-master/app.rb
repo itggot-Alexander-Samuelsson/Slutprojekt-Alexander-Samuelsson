@@ -74,20 +74,38 @@ class App < Sinatra::Base
   end
 
   post '/issue/create' do
-    if params['notification'] == "yes"
-      notification = "true"
+    p params
+    if params['notification'] == "set"
+      notification = true
     else
-      notification = "false"
+      notification = false
     end
 
+    created_issue = Issue.create(title:"#{params['title']}", email:"#{@user.email}", notification:notification, category_id:"#{params['category']}", regular_user_id:"#{@user.id}")
+    created_update = Update.create(text:"#{params['issue_text']}", issue_id:created_issue.id)
 
-    Issue.create(title:"#{params['title']}", email:"#{@user.email}", notification:"#{notification}", category_id:"#{params['category']}", regular_user_id:"#{@user.id}")
-    #notification radio kanske inte ger tillbaka yes, se felmeddelande (säger att notification = set)
+
+    files = params[:attachments]
+    files.each do |file|
+      p file
+      original_name = file[:filename]
+      tmpfile = file[:tempfile]
+
+      filetype = file[:type].split('/')[1] #file[:type] always looks like image/*type*
+
+      new_name = (0...30).map { ('a'..'z').to_a[rand(26)] }.join #Creates a random string with 30 letters
+
+      File.open("public/uploads/#{new_name}.#{filetype}", "w") do |f|
+        f.write(tmpfile.read)
+      end
+
+      CaseAttachment.create(path:"/uploads/#{new_name}.#{filetype}", name:original_name, update_id:created_update.id, article_id:1)
+    end
 
     redirect '/user/issues'
-
   end
 end
+
 
 
 
