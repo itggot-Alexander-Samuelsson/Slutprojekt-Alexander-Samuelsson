@@ -3,3 +3,6 @@
 .idea/Slutprojekt-Alexander-Samuelsson.iml
 .idea/workspace.xml
 .idea/workspace.xml
+.sinatra-skeleton-master/public/uploads/**
+*.jpeg
+sinatra-skeleton-master/public/uploads/fchvvapcrurbmwmgebvxssyackctjw.png

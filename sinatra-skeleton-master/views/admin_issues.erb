@@ -1,0 +1,36 @@
+<div id="admin_menu">
+  <ul>
+    <li><a href="/admin/users"><h3>Användare</h3></a></li>
+    <li style="text-decoration: underline"><h3>Ärenden</h3></li>
+    <li><a href="/admin/knowledgebase"><h3>Vanliga Problem</h3></a></li>
+  </ul>
+</div>
+
+
+<div id="admin_issues_list">
+  <table class="mdl-data-table mdl-data-table--selectable mdl-js-data-table">
+    <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Tilldelad till</th>
+      <th>Titel</th>
+      <th>Status</th>
+      <th>Senast uppdaterad</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for issue in @issues %>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric"><a href="/admin/issue/<%= issue.id %>">Admin</a></td>
+          <td><a href="/admin/issue/<%= issue.id %>"><%= issue.title %></a></td>
+          <td><a href="/admin/issue/<%= issue.id %>"><%= issue.status %></a></td>
+          <td><a href="/admin/issue/<%= issue.id %>"><%= issue.created_at.strftime('%Y-%m-%d') %></a></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div id="add_user_issue">
+    <a href="/issue/create"><button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">add</i>
+    </button></a>
+  </div>
+</div>

@@ -4,7 +4,13 @@ class App < Sinatra::Base
   before do
     if session[:user_id]
       @user = RegularUser.get(session[:user_id])
+    # elsif @user == nil
+    #   @admin = AdminUser.get(session[:user_id])
     end
+
+    # if request.path_info != '/' && request.path_info != '/login'
+    #   redirect '/'
+    # end
   end
 
   get '/' do
@@ -15,6 +21,9 @@ class App < Sinatra::Base
     "Du loggas in..."
     p params
     user = RegularUser.first(email: params["email"])
+    # if user == nil
+    #   user = AdminUser.first(email: params["email"])
+    # end
     p user
     if user && user.password == params["password"]
       session[:user_id] = user.id
@@ -24,14 +33,14 @@ class App < Sinatra::Base
     redirect '/'
   end
 
-  post '/logout' do
+  get '/logout' do
     session.destroy
     redirect '/'
   end
 
   get '/user/issues' do
 
-    @issues = Issue.all
+    @issues = Issue.all(regular_user_id: @user.id)
     erb :user_issues
   end
 
@@ -51,7 +60,28 @@ class App < Sinatra::Base
   end
 
   post '/issue/:id/update' do |issue_id|
-    Update.create(text:"#{params['update_text']}", issue_id: issue_id)
+    created_update = Update.create(text:"#{params['update_text']}", issue_id: issue_id)
+
+    if params[:attachments] != nil
+      files = params[:attachments]
+      files.each do |file|
+        p file
+        original_name = file[:filename]
+        tmpfile = file[:tempfile]
+
+        filetype = file[:type].split('/')[1] #file[:type] always looks like image/*type*
+
+
+        new_name = (0...30).map { ('a'..'z').to_a[rand(26)] }.join #Creates a random string with 30 letters
+
+        File.open("public/uploads/#{new_name}.#{filetype}", "w") do |f|
+          f.write(tmpfile.read)
+        end
+
+        CaseAttachment.create(path:"/uploads/#{new_name}.#{filetype}", name:original_name, update_id:created_update.id, article_id:1)
+      end
+    end
+
     redirect "/user/issue/#{issue_id}"
   end
 
@@ -84,27 +114,54 @@ class App < Sinatra::Base
     created_issue = Issue.create(title:"#{params['title']}", email:"#{@user.email}", notification:notification, category_id:"#{params['category']}", regular_user_id:"#{@user.id}")
     created_update = Update.create(text:"#{params['issue_text']}", issue_id:created_issue.id)
 
+    if params[:attachments] != nil
+      files = params[:attachments]
+      files.each do |file|
+        p file
+        original_name = file[:filename]
+        tmpfile = file[:tempfile]
 
-    files = params[:attachments]
-    files.each do |file|
-      p file
-      original_name = file[:filename]
-      tmpfile = file[:tempfile]
-
-      filetype = file[:type].split('/')[1] #file[:type] always looks like image/*type*
+        filetype = file[:type].split('/')[1] #file[:type] always looks like image/*type*
 
 
-      new_name = (0...30).map { ('a'..'z').to_a[rand(26)] }.join #Creates a random string with 30 letters
+        new_name = (0...30).map { ('a'..'z').to_a[rand(26)] }.join #Creates a random string with 30 letters
 
-      File.open("public/uploads/#{new_name}.#{filetype}", "w") do |f|
-        f.write(tmpfile.read)
+        File.open("public/uploads/#{new_name}.#{filetype}", "w") do |f|
+          f.write(tmpfile.read)
+        end
+
+        CaseAttachment.create(path:"/uploads/#{new_name}.#{filetype}", name:original_name, update_id:created_update.id, article_id:1)
       end
-
-      CaseAttachment.create(path:"/uploads/#{new_name}.#{filetype}", name:original_name, update_id:created_update.id, article_id:1)
     end
+
 
     redirect '/user/issues'
   end
+
+  #ADMIN STUFF STARTS HERE
+
+  get '/admin/issues' do
+  @issues = Issue.all
+  erb :admin_issues
+  end
+
+  get '/admin/issue/:id' do |issue_id|
+    @issue = Issue.first(:id => issue_id)
+    @updates = Update.all(:issue_id => @issue.id)
+
+
+    erb :admin_show_issue
+
+  end
+
+  get '/admin/users' do
+    erb :admin_users
+  end
+
+  get '/admin/knowledgebase' do
+    erb :admin_knowledgebase
+  end
+
 end
 
 

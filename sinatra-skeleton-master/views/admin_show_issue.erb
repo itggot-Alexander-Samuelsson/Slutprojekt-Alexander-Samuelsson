@@ -1,12 +1,13 @@
-<div id="user_menu">
-  <ul>
-    <li style="text-decoration: underline"><h3>Ärenden</h3></li>
-    <li><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></li>
-  </ul>
+<div id="admin_menu">
+  <table><tr>
+    <td><a href="/admin/users"><h3>Användare</h3></a></td>
+    <td><h3 style="text-decoration: underline;">Ärenden</h3></td>
+    <td><a href="/admin/knowledgebase"><h3>Vanliga Problem</h3></a></td>
+  </tr></table>
 </div>
 
 <div id="back_button">
-  <a href="/user/issues"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+  <a href="/admin/issues"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
     <i class="material-icons">arrow_back</i>
   </button></a>
 </div>
@@ -18,11 +19,11 @@
     <ul for="user_show_issue_menu"></ul>
   </div>
   <% for update in @updates do %>
-     <% @attachments = CaseAttachment.all(:update_id => update.id) %>
+      <% @attachments = CaseAttachment.all(:update_id => update.id) %>
 
       <div class="update_container">
         <div class="mdl-card__title-text">
-          <span>Uppdaterad: <%= update.created_at.strftime('%Y-%m-%d') %> Klockan: <%= update.created_at.strftime('%H:%M') %></span>
+          <span>Uppdaterad: <%= update.created_at.strftime('%Y-%m-%d') %></span>
         </div>
         <div class="mdl-card__supporting-text">
           <span><%= update.text %></span>

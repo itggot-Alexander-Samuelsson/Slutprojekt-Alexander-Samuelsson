@@ -23,21 +23,32 @@ div#header{
     z-index:10;
 }
 div#header span{
+    width: 225px;
     margin-right: 10px;
     float: right;
 }
+
+div#header p{
+    font-family: Roboto;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    float: right;
+    font-size: 14.5px;
+
+}
+
+
 div#header img{
     margin-left: 10px;
 }
 
-div#header p{
-    margin-right: 10px;
-    float: right;
+div#header button{
+    z-index: 40;
 }
 
 /*User Issues*/
 
-div#user_menu{
+div#user_menu {
     background-color: transparent;
     width: 100%;
     height: 50px;
@@ -45,15 +56,22 @@ div#user_menu{
     top: 15px;
     z-index: 20;
 }
-div#user_menu table{
+div#user_menu ul{
     margin-right: auto;
     margin-left: auto;
+    background-color: transparent;
+    padding: 0;
+    display:table;
+    width: 60vw;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
 }
-div#user_menu table td {
-    border-left:solid 40px transparent;
-    border-right:solid 40px transparent;
+div#user_menu ul li {
+    background-color: transparent;
+    display:table-cell;
 }
-div#user_menu table h3 {
+div#user_menu ul h3 {
     margin: 0px;
 }
 div#user_menu a {
@@ -116,8 +134,16 @@ div.mdl-card__title{
 
 }
 
+div.mdl-card__media{
+    border-top: 2px solid #9FA8DA;
+}
+
 div.mdl-card__title-text span{
     margin-left: 13px;
+}
+
+.mdl-card__supporting-text a{
+    float: right;
 }
 
 div.update_container{
@@ -130,11 +156,17 @@ div#back_button{
     left: 12vw;
 }
 
-.mdl-card__supporting-text a{
-    float: right;
+
+
+/*Knowledgebase*/
+div#article_text{
+    max-height: 300px;
 }
 
 
+div#article_categories{
+    float: left;
+}
 
 form#update_issue{
     width: 700px;
@@ -350,3 +382,69 @@ form#create_issue_form{
 form#create_issue_form ul{
     z-index: 2
 }
+
+
+/*ADMIN STUFF STARTS HERE*/
+/*ADMIN MENU*/
+div#admin_menu{
+    background-color: transparent;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 15px;
+    z-index: 20;
+}
+
+div#admin_menu ul{
+    margin-right: auto;
+    margin-left: auto;
+    background-color: transparent;
+    padding: 0;
+    display:table;
+    width: 60vw;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+div#admin_menu ul li {
+    background-color: transparent;
+    display:table-cell;
+}
+div#admin_menu ul h3 {
+    margin: 0px;
+}
+div#admin_menu a {
+    color: black;
+}
+
+/*ADMINS_ISSUES*/
+div#admin_issues_list{
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#admin_issues_list table {
+    width: 70vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+div#admin_issues_list td a {
+    display: block;
+    height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+div#admin_issues_list th {
+    text-align: center;
+    font-size: 20px;
+    background-color: #C5CAE9;
+}
+div#admin_issues_list td {
+    font-size: 16px;
+    padding: 0px;
+}
+
+

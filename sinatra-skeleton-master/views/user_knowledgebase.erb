@@ -1,8 +1,8 @@
 <div id="user_menu">
-  <table><tr>
-    <td><a href="/user/issues"><h3>Mina ärenden</h3></a></td>
-    <td style="text-decoration: underline"><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></td>
-  </tr></table>
+  <ul>
+    <li><a href="/user/issues"><h3>Ärenden</h3></a></li>
+    <li style="text-decoration: underline"><h3>Vanliga Problem</h3></li>
+  </ul>
 </div>
 
 <div class="mdl-card">
@@ -12,11 +12,13 @@
         <div class="mdl-card__title">
           <h2><%= article.title %></h2>
         </div>
-        <div class="mdl-card__supporting-text">
+        <div id="article_text" class="mdl-card__supporting-text">
+          <a href="/user/knowledgebase/article/<%= article.id %>">Läs Mer</a>
+          <br>
+          <br>
           <span><%= article.text %></span>
           <br>
           <br>
-          <a href="/user/knowledgebase/article/<%= article.id %>">läs mer</a>
         </div>
         <div class="mdl-card__media">
           <% for attachment in @attachments do %>
