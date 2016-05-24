@@ -6,4 +6,9 @@ $( document ).ready(function() {
     $("input[name='category']").click(function () {
         $("#create_issue_message").show();
     })
+
+    $("#issue_created").delay(3000).fadeOut("slow");
+    $("#issue_updated").delay(3000).fadeOut("slow");
+    $("#issue_removed").delay(3000).fadeOut("slow");
+
 });

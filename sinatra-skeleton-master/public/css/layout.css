@@ -8,6 +8,10 @@ a{
     text-decoration: none;
 }
 
+div#login_header{
+    text-align: center;
+}
+
 div#login{
     margin-top: 80px;
     margin-left: auto;
@@ -49,11 +53,15 @@ div#header button{
 /*User Issues*/
 
 div#user_menu {
+    margin-left: auto;
+    margin-right: auto;
     background-color: transparent;
-    width: 100%;
+    width: 50vw;
     height: 50px;
     position: fixed;
     top: 15px;
+    left: 0px;
+    right: 0px;
     z-index: 20;
 }
 div#user_menu ul{
@@ -62,14 +70,16 @@ div#user_menu ul{
     background-color: transparent;
     padding: 0;
     display:table;
-    width: 60vw;
+    width: 500px;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
 }
 div#user_menu ul li {
+    margin: auto;
     background-color: transparent;
     display:table-cell;
+    width: 150px;
 }
 div#user_menu ul h3 {
     margin: 0px;
@@ -90,23 +100,28 @@ div#user_issues_list table {
 div#user_issues_list td a {
     display: block;
     height: 40px;
-    font-size: 20px;
-    text-decoration: none;
+    font-size: 25px;
     color: black;
+    text-decoration: none;
 }
 div#user_issues_list th {
     font-size: 20px;
     background-color: #C5CAE9;
 }
-div#user_issues_list td {
-    font-size: 16px;
-    padding: 0px;
-}
+
 div#add_user_issue {
     position: fixed;
     top: 96px;
     right: 7vw;
 
+}
+
+div#issue_created{
+    text-align: center;
+}
+
+div#issue_removed{
+    text-align: center;
 }
 
 div.mdl-card{
@@ -138,8 +153,8 @@ div.mdl-card__media{
     border-top: 2px solid #9FA8DA;
 }
 
-div.mdl-card__title-text span{
-    margin-left: 13px;
+div.mdl-card__title-text{
+    width: 59vw;
 }
 
 .mdl-card__supporting-text a{
@@ -154,6 +169,14 @@ div#back_button{
     position: relative;
     top: 118px;
     left: 12vw;
+}
+
+div#issue_updated{
+    text-align: center;
+}
+
+form#remove_issue{
+    float: right;
 }
 
 

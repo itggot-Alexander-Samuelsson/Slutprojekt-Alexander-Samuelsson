@@ -1,8 +1,8 @@
-<div id="admin_menu">
-  <table><tr>
-    <td style="text-decoration: underline"><a href="/user/issues"><h3>Mina ärenden</h3></a></td>
-    <td><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></td>
-  </tr></table>
+<div id="user_menu">
+  <ul>
+    <li style="text-decoration: underline"><a href="/user/issues"><h3>Ärenden</h3></a></li>
+    <li><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></li>
+  </ul>
 </div>
 
 <form action="/issue/<%= @issue.id %>/update" method="post" class="create" id="update_issue" enctype="multipart/form-data">

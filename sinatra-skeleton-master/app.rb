@@ -1,16 +1,17 @@
+require 'rack-flash'
+
 class App < Sinatra::Base
   enable :sessions
-
+  use Rack::Flash
   before do
     if session[:user_id]
       @user = RegularUser.get(session[:user_id])
-    # elsif @user == nil
-    #   @admin = AdminUser.get(session[:user_id])
+=begin
+    elsif request.path_info != '/' || request.path_info != '/login'
+      redirect '/'
+=end
     end
 
-    # if request.path_info != '/' && request.path_info != '/login'
-    #   redirect '/'
-    # end
   end
 
   get '/' do
@@ -33,7 +34,7 @@ class App < Sinatra::Base
     redirect '/'
   end
 
-  get '/logout' do
+  post '/logout' do
     session.destroy
     redirect '/'
   end
@@ -41,6 +42,7 @@ class App < Sinatra::Base
   get '/user/issues' do
 
     @issues = Issue.all(regular_user_id: @user.id)
+    p @issues
     erb :user_issues
   end
 
@@ -61,7 +63,7 @@ class App < Sinatra::Base
 
   post '/issue/:id/update' do |issue_id|
     created_update = Update.create(text:"#{params['update_text']}", issue_id: issue_id)
-
+    flash[:issue_created] = ""
     if params[:attachments] != nil
       files = params[:attachments]
       files.each do |file|
@@ -83,6 +85,21 @@ class App < Sinatra::Base
     end
 
     redirect "/user/issue/#{issue_id}"
+  end
+
+  post '/user/issue/:id/remove' do |issue_id|
+    @issue = Issue.first(:id => issue_id)
+    @updates = Update.all(:issue_id => issue_id)
+    @updates.each do |update|
+      @files = CaseAttachment.all(:update_id => update.id)
+      @files.each {|file| file.destroy}
+      update.destroy
+    end
+
+    @issue.destroy
+
+    flash[:issue_removed] = ""
+    redirect '/user/issues'
   end
 
   get '/user/knowledgebase' do
@@ -113,6 +130,7 @@ class App < Sinatra::Base
 
     created_issue = Issue.create(title:"#{params['title']}", email:"#{@user.email}", notification:notification, category_id:"#{params['category']}", regular_user_id:"#{@user.id}")
     created_update = Update.create(text:"#{params['issue_text']}", issue_id:created_issue.id)
+    flash[:issue_created] = ""
 
     if params[:attachments] != nil
       files = params[:attachments]

@@ -20,7 +20,7 @@ group :development do
   gem 'dm-sqlite-adapter', group: :development
   gem 'rerun'
   gem 'thin'
-  
+  gem 'rack-flash3'
 end
 
 # Used during production (on Heroku), when your application is 'live'

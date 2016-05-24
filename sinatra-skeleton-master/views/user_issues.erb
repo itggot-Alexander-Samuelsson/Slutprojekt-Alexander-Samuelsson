@@ -16,6 +16,9 @@
     </tr>
     </thead>
     <tbody>
+    <% if @issues == [] %>
+      <tr><td class="mdl-data-table__cell--non-numeric"><h4>Inga ärenden, skapa ett med knappen till höger</h4></td></tr>
+    <% end %>
     <% for issue in @issues %>
           <tr>
             <td class="mdl-data-table__cell--non-numeric"><a href="/user/issue/<%= issue.id %>"><%= issue.title %></a></td>
@@ -31,3 +34,15 @@
     </button></a>
   </div>
 </div>
+
+<% if flash[:issue_created] %>
+    <div id="issue_created">
+      <h2>Ärendet är skapat</h2>
+    </div>
+<% end %>
+
+<% if flash[:issue_removed] %>
+    <div id="issue_removed">
+      <h2>Ärendet är borttaget</h2>
+    </div>
+<% end %>

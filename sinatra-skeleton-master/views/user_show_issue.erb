@@ -39,8 +39,15 @@
     <a href="/user/issue/<%= @issue.id %>/update"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
       Uppdatera
     </button></a>
-    <a href="/user/issue/<%= @issue.id %>/resolve"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-      Markera som löst
-    </button></a>
+
+    <form action="/user/issue/<%= @issue.id %>/remove" method="post" id="remove_issue"><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+      Ta bort
+    </button></form>
   </div>
 </div>
+
+<% if flash[:issue_created] %>
+  <div id="issue_updated">
+    <h2>Ärendet är uppdaterat</h2>
+  </div>
+<% end %>
