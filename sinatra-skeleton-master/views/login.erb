@@ -1,6 +1,9 @@
 <div id="login">
-<div id="login_header">
-  <h3>Välkommen till ITGGOTs helpdesk</h3>
+  <div class="login_text">
+    <h3>Välkommen till ITGGOTs Helpdesk</h3>
+  </div>
+<div class="login_text" id="login_header">
+  <h5>Vill du logga in?</h5>
 </div>
 <form action="/login" method="post" class="create" >
   <div class="group">
@@ -15,6 +18,9 @@
 </form>
 </div>
 
+<div class="login_text" id="login_footer">
+  <a href="user/knowledgebase"><h5>Eller titta på vanliga problem?</h5></a>
+</div>
 <% if flash[:no_login] %>
     <div id="no_login">
       <h2>Fel användarnamn eller lösenord</h2>
