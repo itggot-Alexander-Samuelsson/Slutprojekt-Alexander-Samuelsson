@@ -26,21 +26,33 @@
 </head>
 <body>
 <div id="header">
-  <div id="logged_in"></div>
+  <div id="logged_in">
   <% if @user %>
       <img src="/img/itglogo.png" alt="ITG Logo">
-      <span>
-        <p>Inloggad som <%= @user.fname %> <%= @user.lname %></p>
-        <form action="/logout" method="post">
-          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+      <div id="user">
+        <span><%= @user.fname %> <%= @user.lname %></span>
+
+        <a href="/logout">  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
             Logga ut
-          </button>
-        </form></span>
+          </button></a>
+      </div>
   <% else %>
       <img src="/img/itglogo.png" alt="ITG Logo">
       <p>Ej inloggad</p>
   <% end %>
+  </span>
+    </div>
 </div>
+
+  <% if session[:user_id] %>
+  <div id="mobile_user_menu">
+    <ul>
+      <li><a href="/user/issues"><span>Ärenden</span></a></li>
+      <li><a href="/user/knowledgebase"><span>Vanliga Problem</span></a></li>
+    </ul>
+  </div>
+  <% end %>
+
   <%= yield %>
 </body>
 </html>

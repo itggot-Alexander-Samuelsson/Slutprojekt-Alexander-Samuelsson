@@ -1,10 +1,10 @@
-<div id="user_menu">
+<div class="user_menu">
   <ul>
     <li><a href="/user/issues"><h3>Ärenden</h3></a></li>
     <li style="text-decoration: underline"><h3>Vanliga Problem</h3></li>
   </ul>
 </div>
-
+<div class="mdl">
 <div class="mdl-card">
   <% for article in @articles do %>
       <% @attachments = ArticleAttachment.all(:article_id => article.id) %>
@@ -12,8 +12,14 @@
         <div class="mdl-card__title">
           <h2><%= article.title %></h2>
         </div>
+        <div id="article_categories" class="mdl-card__title-text">
+          Kategori:
+          <% for category in article.categories %>
+              <%= category.name %>
+          <% end %>
+        </div>
         <div id="article_text" class="mdl-card__supporting-text">
-          <a href="/user/knowledgebase/article/<%= article.id %>">Läs Mer</a>
+          <a href="/user/knowledgebase/article/<%= article.id %>">Läs mer och se bilder</a>
           <br>
           <br>
           <span><%= article.text %></span>
@@ -28,3 +34,38 @@
       </div>
   <% end %>
 </div>
+</div>
+
+<div class="mobile_mdl mobile_knowledgebase" >
+  <div class="mdl-card">
+    <% for article in @articles do %>
+        <% @attachments = ArticleAttachment.all(:article_id => article.id) %>
+        <div class="article_container">
+          <div class="mdl-card__title">
+            <h2><%= article.title %></h2>
+          </div>
+          <div id="mobile_article_categories">
+            <span> Kategorier:
+            <% for category in article.categories %>
+              <%= category.name %>
+            <% end %>
+            </span>
+          </div>
+          <div id="article_text" class="mdl-card__supporting-text">
+            <a href="/user/knowledgebase/article/<%= article.id %>">Läs mer och se bilder</a>
+            <br>
+            <br>
+            <span><%= article.text %></span>
+            <br>
+            <br>
+          </div>
+          <div class="mdl-card__media">
+            <% for attachment in @attachments do %>
+                <img src="<%= attachment.path %>" alt="Bild här">
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+  </div>

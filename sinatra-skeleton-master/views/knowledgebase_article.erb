@@ -1,4 +1,4 @@
-<div id="user_menu">
+<div class="user_menu">
   <ul>
     <li><a href="/user/issues"><h3>Ärenden</h3></a></li>
     <li style="text-decoration: underline"><h3>Vanliga Problem</h3></li>
@@ -11,7 +11,7 @@
   </button></a>
 </div>
 
-
+<div class="mdl">
 <div class="mdl-card">
   <div class="mdl-card__title">
     <h2><%= @article.title %></h2>
@@ -32,4 +32,24 @@
           <img src="<%= attachment.path %>" alt="Bild här">
       <% end %>
     </div>
+</div>
+</div>
+
+<div class="mobile_mdl mobile_knowledgebase">
+  <div class="mdl-card">
+    <div class="mdl-card__title">
+      <h2><%= @article.title %></h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <span><%= @article.text %></span>
+    </div>
+    <div class="mdl-card__media">
+
+      <% @attachments = ArticleAttachment.all(:article_id => @article.id) %>
+      <% for attachment in @attachments do %>
+          <img src="<%= attachment.path %>" alt="Bild här">
+      <% end %>
+    </div>
+  </div>
+
 </div>

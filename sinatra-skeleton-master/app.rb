@@ -6,10 +6,6 @@ class App < Sinatra::Base
   before do
     if session[:user_id]
       @user = RegularUser.get(session[:user_id])
-=begin
-    elsif request.path_info != '/' || request.path_info != '/login'
-      redirect '/'
-=end
     end
 
   end
@@ -30,11 +26,11 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect '/user/issues'
     end
-
+    flash[:no_login] = ""
     redirect '/'
   end
 
-  post '/logout' do
+  get '/logout' do
     session.destroy
     redirect '/'
   end

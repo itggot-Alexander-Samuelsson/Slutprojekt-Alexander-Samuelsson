@@ -9,6 +9,7 @@ a{
 }
 
 div#login_header{
+
     text-align: center;
 }
 
@@ -16,6 +17,10 @@ div#login{
     margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
+}
+
+div#no_login {
+    text-align: center;
 }
 
 div#header{
@@ -26,9 +31,10 @@ div#header{
     width:100%;
     z-index:10;
 }
-div#header span{
+div#user{
     width: 225px;
     margin-right: 10px;
+    margin-top: 10px;
     float: right;
 }
 
@@ -46,13 +52,13 @@ div#header img{
     margin-left: 10px;
 }
 
-div#header button{
+div#user button{
     z-index: 40;
 }
 
 /*User Issues*/
 
-div#user_menu {
+div.user_menu {
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
@@ -64,7 +70,7 @@ div#user_menu {
     right: 0px;
     z-index: 20;
 }
-div#user_menu ul{
+div.user_menu ul{
     margin-right: auto;
     margin-left: auto;
     background-color: transparent;
@@ -75,16 +81,16 @@ div#user_menu ul{
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
 }
-div#user_menu ul li {
+div.user_menu ul li {
     margin: auto;
     background-color: transparent;
     display:table-cell;
     width: 150px;
 }
-div#user_menu ul h3 {
+div.user_menu ul h3 {
     margin: 0px;
 }
-div#user_menu a {
+div.user_menu a {
     color: black;
 }
 div#user_issues_list{
@@ -124,7 +130,7 @@ div#issue_removed{
     text-align: center;
 }
 
-div.mdl-card{
+div.mdl .mdl-card{
     width: 70%;
     max-width: 60vw;
     margin-top: 80px;
@@ -133,32 +139,39 @@ div.mdl-card{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-div.mdl-card__media{
+div.mdl .mdl-card__media{
     background-color: #C5CAE9;
 }
 
-div.mdl-card__title-text{
+div.mdl .mdl-card__media img{
+    max-width: 500px;
+    max-height: 500px;
+}
+
+div.mdl .mdl-card__title-text{
     /*-webkit-box-shadow: 0px -4px 3px rgba(0,0,0,0.16);*/
     /*-moz-box-shadow:    0px -4px 3px rgba(0,0,0,0.16);*/
     /*box-shadow:         0px -4px 3px rgba(0,0,0,0.16);*/
     border-bottom: 2px solid #C5CAE9;
 }
 
-div.mdl-card__title{
+div.mdl .mdl-card__title{
     border-bottom: 7px solid #9FA8DA;
 
 }
 
-div.mdl-card__media{
+div.mdl .mdl-card__media{
     border-top: 2px solid #9FA8DA;
 }
 
-div.mdl-card__title-text{
+div.mdl .mdl-card__title-text{
     width: 59vw;
 }
 
-.mdl-card__supporting-text a{
-    float: right;
+div.mdl .mdl-card__supporting-text a{
+    font-size: 20px;
+    float: left;
+    text-decoration: underline;
 }
 
 div.update_container{
@@ -199,7 +212,8 @@ form#update_issue{
 /*Loginsida*/
 
 .create {
-    width: 380px;
+    width: 95vw;
+    max-width: 380px;
     margin: 4em auto;
     padding: 3em 2em 2em 2em;
     background: #fafafa;
@@ -394,8 +408,8 @@ input.custom_input:focus ~ .highlight {
 /*Create issue*/
 
 form#create_issue_form{
-    width: 700px;
-    margin-top: 200px;
+    margin-top: 100px;
+    max-width: 700px;
 }
 
 .mdl-textfield{
@@ -470,4 +484,155 @@ div#admin_issues_list td {
     padding: 0px;
 }
 
+@media (min-width: 500px){
+    div#mobile_user_issues_list{
+        display: none;
+    }
 
+    div.mobile_mdl{
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 1000px) {
+    div.user_menu{
+        width: 50%;
+    }
+
+    div.user_menu ul {
+        width: 50%;
+    }
+    
+    div.user_menu li{
+        width: 200px;
+    }
+
+    div.user_menu li h3{
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: 500px){
+    div.user_menu{
+        display: none;
+    }
+
+    div#header img {
+        display: none;
+    }
+
+    div#user{
+        width: 120px;
+        overflow: hidden;
+        white-space: nowrap;
+        float: left;
+        text-align: left;
+        margin-left: 10px;
+    }
+
+    div#user button{
+        float: left;
+    }
+    div#user_issues_list{
+        display: none;
+    }
+
+    div#mobile_user_issues_list{
+        margin-top: 90px;
+    }
+
+    div#mobile_user_issues_list table{
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    div#mobile_user_issues_list td a {
+        display: block;
+        text-decoration: none;
+        color: black;
+    }
+
+    div#add_user_issue{
+        margin-top: 380px;
+    }
+
+    div#mobile_user_menu{
+        width: 200px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 50;
+    }
+    div#mobile_user_menu a{
+        font-size: 18px;
+        color: black;
+    }
+
+    div.mdl{
+        display: none;
+    }
+
+    div.mobile_mdl .mdl-card{
+        width: 99%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div.mobile_mdl .mdl-card__media{
+        background-color: #C5CAE9;
+    }
+    div.mobile_mdl .mdl-card__media img{
+        max-width: 250px;
+        max-height: 259px;
+    }
+
+    div.mobile_mdl .mdl-card__actions form{
+        margin-right: 10px;
+    }
+
+    div.mobile_knowledgebase .mdl-card{
+        margin-top: 50px;
+    }
+
+    div.mobile_knowledgebase .mdl-card__title-text{
+        border-bottom: 2px solid #C5CAE9;
+        float: left;
+    }
+
+    div.mobile_knowledgebase .mdl-card__title{
+        border-bottom: 7px solid #9FA8DA;
+
+    }
+
+    div.mobile_knowledgebase .mdl-card__media{
+        border-top: 2px solid #9FA8DA;
+    }
+
+    div#mobile_article_categories{
+        margin-top: 10px;
+        padding-left: 15px;
+        font-family: Roboto;
+        font-weight: 400;
+        font-size: 15px;
+        border-bottom: 2px solid #9FA8DA;
+    }
+    
+    form#update_issue{
+        width: 99%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    form#create_issue_form{
+        margin-top: 100px;
+    }
+
+    div.flash h2{
+        font-size: 25px;
+    }
+
+
+}

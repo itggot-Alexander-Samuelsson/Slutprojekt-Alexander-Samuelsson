@@ -1,4 +1,4 @@
-<div id="user_menu">
+<div class="user_menu">
   <ul>
     <li style="text-decoration: underline"><h3>Ärenden</h3></li>
     <li><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></li>
@@ -11,7 +11,7 @@
   </button></a>
 </div>
 
-
+<div class="mdl">
 <div class="mdl-card">
   <div class="mdl-card__title">
     <h2><%= @issue.title %></h2>
@@ -45,9 +45,45 @@
     </button></form>
   </div>
 </div>
+</div>
 
+<div class="mobile_mdl">
+  <div class="mdl-card">
+    <div class="mdl-card__title">
+      <h2><%= @issue.title %></h2>
+      <ul for="user_show_issue_menu"></ul>
+    </div>
+    <% for update in @updates do %>
+        <% @attachments = CaseAttachment.all(:update_id => update.id) %>
+
+        <div class="update_container">
+          <div class="mdl-card__title-text">
+            <span>Uppdaterad: <%= update.created_at.strftime('%Y-%m-%d') %> Klockan: <%= update.created_at.strftime('%H:%M') %></span>
+          </div>
+          <div class="mdl-card__supporting-text">
+            <span><%= update.text %></span>
+          </div>
+          <div class="mdl-card__media">
+            <% for attachment in @attachments do %>
+                <img src="<%= attachment.path %>" alt="Bild här">
+                <span><%= attachment.name %></span>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+    <div class="mdl-card__actions">
+      <a href="/user/issue/<%= @issue.id %>/update"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+        Uppdatera
+      </button></a>
+
+      <form action="/user/issue/<%= @issue.id %>/remove" method="post" id="remove_issue"><button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+        Ta bort
+      </button></form>
+    </div>
+  </div>
+</div>
 <% if flash[:issue_created] %>
-  <div id="issue_updated">
+  <div id="issue_updated" class="flash">
     <h2>Ärendet är uppdaterat</h2>
   </div>
 <% end %>

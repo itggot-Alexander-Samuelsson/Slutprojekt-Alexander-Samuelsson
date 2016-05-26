@@ -1,4 +1,4 @@
-<div id="user_menu">
+<div class="user_menu">
   <ul>
     <li style="text-decoration: underline"><h3>Ärenden</h3></li>
     <li><a href="/user/knowledgebase"><h3>Vanliga Problem</h3></a></li>
@@ -35,14 +35,41 @@
   </div>
 </div>
 
+<div id="mobile_user_issues_list">
+  <table class="mdl-data-table mdl-js-data-table">
+    <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Titel</th>
+      <th>Status</th>
+      <th>Senast uppdaterad</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for issue in @issues %>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric"><a href="/user/issue/<%= issue.id %>"><%= issue.title %></a></td>
+          <td><a href="/user/issue/<%= issue.id %>"><%= issue.status %></a></td>
+          <td><a href="/user/issue/<%= issue.id %>"><%= issue.created_at.strftime('%Y-%m-%d') %></a></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div id="add_user_issue">
+    <a href="/issue/create"><button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">add</i>
+    </button></a>
+    </div>
+</div>
+
 <% if flash[:issue_created] %>
-    <div id="issue_created">
+    <div id="issue_created" class="flash">
       <h2>Ärendet är skapat</h2>
     </div>
 <% end %>
 
 <% if flash[:issue_removed] %>
-    <div id="issue_removed">
+    <div id="issue_removed" class="flash">
       <h2>Ärendet är borttaget</h2>
     </div>
 <% end %>
