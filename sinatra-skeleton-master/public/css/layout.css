@@ -8,7 +8,7 @@ a{
     text-decoration: none;
 }
 
-div#login_header{
+div.login_text{
 
     text-align: center;
 }
@@ -130,6 +130,10 @@ div#issue_removed{
     text-align: center;
 }
 
+.mdl-card__supporting-text{
+    overflow: auto;
+    border-bottom: 5px solid #9FA8DA;
+}
 div.mdl .mdl-card{
     width: 70%;
     max-width: 60vw;
@@ -146,6 +150,7 @@ div.mdl .mdl-card__media{
 div.mdl .mdl-card__media img{
     max-width: 500px;
     max-height: 500px;
+    margin: 10px;
 }
 
 div.mdl .mdl-card__title-text{
@@ -207,6 +212,7 @@ div#article_categories{
 form#update_issue{
     width: 700px;
     margin-top: 100px;
+    max-width: 700px;
 }
 
 /*Loginsida*/
@@ -586,7 +592,8 @@ div#admin_issues_list td {
     }
     div.mobile_mdl .mdl-card__media img{
         max-width: 250px;
-        max-height: 259px;
+        max-height: 250px;
+        margin: 5px;
     }
 
     div.mobile_mdl .mdl-card__actions form{
@@ -632,6 +639,10 @@ div#admin_issues_list td {
 
     div.flash h2{
         font-size: 25px;
+    }
+
+    div#logged_in p {
+        float: left;
     }
 
 

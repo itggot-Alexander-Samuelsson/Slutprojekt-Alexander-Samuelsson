@@ -5,6 +5,13 @@
   </ul>
 </div>
 
+<% if session[:user_id] == nil %>
+<div id="mobile_user_menu">
+  <ul>
+    <li><a href="/user/knowledgebase"><span>Vanliga Problem</span></a></li>
+  </ul>
+</div>
+<% end %>
 <div id="back_button">
   <a href="/user/knowledgebase"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
     <i class="material-icons">arrow_back</i>
@@ -30,6 +37,7 @@
       <% @attachments = ArticleAttachment.all(:article_id => @article.id) %>
       <% for attachment in @attachments do %>
           <img src="<%= attachment.path %>" alt="Bild här">
+          <span><% attachment.name %></span>
       <% end %>
     </div>
 </div>

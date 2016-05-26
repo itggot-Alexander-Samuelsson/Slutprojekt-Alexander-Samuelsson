@@ -26,11 +26,6 @@
           <br>
           <br>
         </div>
-        <div class="mdl-card__media">
-          <% for attachment in @attachments do %>
-              <img src="<%= attachment.path %>" alt="Bild här">
-          <% end %>
-        </div>
       </div>
   <% end %>
 </div>
@@ -58,11 +53,6 @@
             <span><%= article.text %></span>
             <br>
             <br>
-          </div>
-          <div class="mdl-card__media">
-            <% for attachment in @attachments do %>
-                <img src="<%= attachment.path %>" alt="Bild här">
-            <% end %>
           </div>
         </div>
     <% end %>

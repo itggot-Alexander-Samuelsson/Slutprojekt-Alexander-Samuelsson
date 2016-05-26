@@ -46,11 +46,14 @@ Aliquam vel diam id urna sollicitudin finibus. Nullam elementum tincidunt velit 
     article.categories << Category.get(1)
     article.save
     article2 = Article.create(title:'Hittade en banan i datorn', text:'Såhär gör du bla bla bla bla')
-    article2.categories << Category.get(1)
+    article2.categories << Category.get(2)
     article2.save
   end
   def self.file
-    # ArticleAttachment.create(path: '/img/smile.png', name:'smile', article_id:1, update_id:1)
+     ArticleAttachment.create(path: '/img/smile.png', name:'smile', article_id:1, update_id:1)
+     ArticleAttachment.create(path: '/img/broken-computer.jpg', name:'smile', article_id:1, update_id:1)
+     ArticleAttachment.create(path: '/img/smile.png', name:'smile', article_id:2, update_id:1)
+
     # CaseAttachment.create(path: '/img/smile.png', name:'smile again', update_id:1, article_id:1)
     # CaseAttachment.create(path: '/img/smile.png', name:'smile again', update_id:1, article_id:1)
     # CaseAttachment.create(path: '/img/smile.png', name:'smile again', update_id:1, article_id:1)
