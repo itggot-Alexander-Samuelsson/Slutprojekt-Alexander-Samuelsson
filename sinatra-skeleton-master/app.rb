@@ -36,25 +36,40 @@ class App < Sinatra::Base
   end
 
   get '/user/issues' do
-
+    if @user
     @issues = Issue.all(regular_user_id: @user.id)
     p @issues
     erb :user_issues
+    else
+      flash[:not_logged_in] = ""
+      redirect '/'
+    end
   end
 
   get '/user/issue/:id' do |issue_id|
+    if @user
     @issue = Issue.first(:id => issue_id)
     @updates = Update.all(:issue_id => @issue.id)
 
+    erb :user_show_issue
+    else
+      flash[:not_logged_in] = ""
+      redirect '/'
+    end
 
-        erb :user_show_issue
   end
 
   get '/user/issue/:id/update' do |issue_id|
+    if @user
     @issue = Issue.first(:id => issue_id)
     @updates = Update.all(:issue_id => @issue.id)
 
     erb :update_issue
+    else
+      flash[:not_logged_in] = ""
+      redirect '/'
+    end
+
   end
 
   post '/issue/:id/update' do |issue_id|
@@ -111,9 +126,15 @@ class App < Sinatra::Base
   end
 
   get '/issue/create' do
+    if @user
     @categories = Category.all
 
     erb :create_issue
+    else
+      flash[:not_logged_in] = ""
+      redirect '/'
+    end
+
   end
 
   post '/issue/create' do

@@ -13,15 +13,16 @@ div.login_text{
     text-align: center;
 }
 
+.flash{
+    text-align: center;
+}
+
 div#login{
     margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
 }
 
-div#no_login {
-    text-align: center;
-}
 
 div#header{
     background-color: #3F51B5;
@@ -132,7 +133,7 @@ div#issue_removed{
 
 .mdl-card__supporting-text{
     overflow: auto;
-    border-bottom: 5px solid #9FA8DA;
+
 }
 div.mdl .mdl-card{
     width: 70%;
@@ -518,6 +519,16 @@ div#admin_issues_list td {
     div.user_menu li h3{
         font-size: 20px;
         line-height: 25px;
+    }
+
+    div.mdl .mdl-card__media img{
+        max-width: 350px;
+        max-height: 350px;
+        margin: 5px;
+    }
+
+    div.mdl .mdl-card{
+        max-width: 85vw;
     }
 }
 

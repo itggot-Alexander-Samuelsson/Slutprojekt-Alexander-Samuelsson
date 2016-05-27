@@ -22,7 +22,14 @@
   <a href="user/knowledgebase"><h5>Eller titta på vanliga problem?</h5></a>
 </div>
 <% if flash[:no_login] %>
-    <div id="no_login">
+    <div class="flash" id="no_login">
       <h2>Fel användarnamn eller lösenord</h2>
     </div>
+<% end %>
+
+<% if flash[:not_logged_in] %>
+    <div class="flash" id="not_logged_in">
+      <h2>Du måste vara inloggad för att komma åt sidan</h2>
+    </div>
+
 <% end %>
