@@ -461,6 +461,12 @@ div#admin_menu a {
     color: black;
 }
 
+div#photoshop_image img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 /*ADMINS_ISSUES*/
 div#admin_issues_list{
     margin-top: 80px;
