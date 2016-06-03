@@ -2,8 +2,11 @@ html, body{
     padding: 0px;
     margin: 0px;
     background-color: #E8EAF6;
-
+    overflow-x: hidden;
+    height: 100%;
 }
+
+
 a{
     text-decoration: none;
 }
@@ -118,7 +121,7 @@ div#user_issues_list th {
 
 div#add_user_issue {
     position: fixed;
-    top: 96px;
+    bottom: 96px;
     right: 7vw;
 
 }
@@ -660,6 +663,10 @@ div#admin_issues_list td {
 
     div#logged_in p {
         float: left;
+    }
+
+    div#photoshop_image{
+        display: none;
     }
 
 

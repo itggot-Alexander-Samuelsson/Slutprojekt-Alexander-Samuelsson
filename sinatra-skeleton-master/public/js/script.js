@@ -11,8 +11,4 @@ $( document ).ready(function() {
     $("#issue_updated").delay(3000).fadeOut("slow");
     $("#issue_removed").delay(3000).fadeOut("slow");
 
-    $("#login_header").hide();
-    $("#login_footer").hide();
-    $("#login_header").delay(1000).fadeIn("slow");
-    $("#login_footer").delay(3000).fadeIn("slow");
 });
